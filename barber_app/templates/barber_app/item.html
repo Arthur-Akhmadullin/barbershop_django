@@ -9,34 +9,7 @@
 	class="inner-page"
 {% endblock %}
 
-{% block logo %}
-	<a class="logo-inner" href="index.html">
-		<img src="{% static 'images/inner-logo.png' %}" width="111"
-		height="24" alt="Барбершоп Бородинский">
-	</a>
-{% endblock %}
 
-<body class="inner-page">
-<header class="main-header">
-    <div class="container clearfix">
-        <nav class="main-navigation">
-            <a class="logo-inner" href="index.html">
-                <img src="{% static 'images/inner-logo.png' %}" width="111"
-                height="24" alt="Барбершоп Бородинский">
-            </a>
-            <ul>
-                <li><a href="#">Информация</a></li>
-                <li><a href="#">Новости</a></li>        
-                <li><a href="price.html">Прайс-лист</a></li>        
-                <li class="active"><a href="#">Магазин</a></li>        
-                <li><a href="#">Контакты</a></li>
-            </ul>
-        </nav>
-        <div class="user-block">
-            <a class="login" href="#">Вход</a>
-        </div>
-    </div>
-</header>
 
 {% block content %}
     <h1 class="item-title">

@@ -9,14 +9,6 @@
 	class="inner-page"
 {% endblock %}
 
-{% block logo %}
-	<a class="logo-inner" href="index.html">
-		<img src="{% static 'images/inner-logo.png' %}" width="111"
-		height="24" alt="Барбершоп Бородинский">
-	</a>
-{% endblock %}
-
-
 
 {% block content %}
     <h1 class="shop-title">
@@ -99,7 +91,7 @@
                     </div>
                     <div class="good-price-content">
                         <span class="price good-price">2 900 руб.</span>
-                        <a class="btn good-btn" href="#">Купить</a>
+                        <a class="btn good-btn" href="{% url 'item_page_url' %}">Купить</a>
                     </div>
                 </article>
                 <article class="good">
