@@ -3,37 +3,29 @@
 <!DOCTYPE html>
 <html lang="ru">
  <head>
-  <meta charset="utf-8" />   
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">    
-  <title>
+	<meta charset="utf-8" />   
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">    
+	<title>
 	{% block title %}
 		Barbershop Borodinski
 	{% endblock %}
-  </title> 
+	</title> 
  </head>
 
 <body 
-{% block bodyclass%}
-{% endblock %}>
+	{% block bodyclass%}
+	{% endblock %}>
 
-<!--
-Надо подчеркивать активный пункт меню.
-Пример кода в shop.html
--->
+	{% include 'include/header.html' %}
 
-{% include 'include/header.html' %}
+	<main class="container">
+		{% block content %}
+		{% endblock %}
+	</main>
 
-
-<main class="container">
-    {% block content %}
-	{% endblock %}
-</main>
-
-{% include 'include/footer.html' %}
-
-{% include 'include/modal_content.html' %}
-
+	{% include 'include/footer.html' %}
+	{% include 'include/modal_content.html' %}
 </body>
 </html>

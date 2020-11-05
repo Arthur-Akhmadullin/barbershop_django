@@ -4,6 +4,9 @@ from django.urls import reverse
 def main_page(request):
 	return render(request, 'barber_app/index.html')
 	
+def news_page(request):
+	return render(request, 'barber_app/news.html')
+	
 def price_page(request):
 	return render(request, 'barber_app/price.html')
 

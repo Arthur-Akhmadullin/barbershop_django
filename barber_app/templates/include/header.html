@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <header class="main-header">
@@ -15,7 +14,7 @@
 				
 				<ul>
 					<li class="{% if url_name == 'main_page_url' %}active{% endif %}"><a href="{% url 'main_page_url' %}">Информация</a></li>
-					<li><a href="#">Новости</a></li>        
+					<li class="{% if url_name == 'news_page_url' %}active{% endif %}"><a href="{% url 'news_page_url' %}">Новости</a></li>        
 					<li class="{% if url_name == 'price_page_url' %}active{% endif %}"><a href="{% url 'price_page_url' %}">Прайс-лист</a></li>        
 					<li class="{% if url_name == 'shop_page_url' %}active{% endif %}"><a href="{% url 'shop_page_url' %}">Магазин</a></li>        
 					<li><a href="#">Контакты</a></li>
