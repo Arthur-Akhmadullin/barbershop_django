@@ -8,7 +8,8 @@ def main_page(request):
 	return render(request, 'barber_app/index.html')
 	
 def all_news_page(request):
-	return render(request, 'barber_app/news.html')
+	all_news = News.objects.all()
+	return render(request, 'barber_app/news.html', {'all_news': all_news})
 	
 def price_page(request):
 	return render(request, 'barber_app/price.html')

@@ -544,11 +544,11 @@ img {
     width: 460px;
 }
 
-.inner-columns-left {
+.inner-columns-left {	
     float: left;
 }
 
-.inner-columns-right {
+.inner-columns-right {	
     float: right;
 }
 

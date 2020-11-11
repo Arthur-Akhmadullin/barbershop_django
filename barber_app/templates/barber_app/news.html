@@ -22,42 +22,35 @@
     <div class="inner-content">
         <div class="big-heading">
             <h2>Читай, пока стрижем!</h2>
-        </div>     
-
-		<div class="inner-columns clearfix">
-			<h2>Мы используем только лучшие средства</h2>
-			<h4>2020-11-05</h4>
-			<p class="short-text">Наша мастерская расположеная в центре города, поэтому
-				сделать стильную стрижку можно в любое время, даже в
-				обеденный перерыв. Здесь вы можете погрузиться в удобную
-				для вас атмосферу, чувствовать себя комфортно и свободно!
-			</p>	
+        </div>  		
+		
+		{% for news in all_news %}
+			<div class="inner-columns clearfix">
+			<h2>{{ news.title }}</h2>
+			<h4>{{ news.date }}</h4>
+			<p class="short-text">{{ news.body|truncatewords:20 }}</p>	
 			<a href="" class="btn">Полный текст</a>			
         </div>
+		{% endfor%}
 
         <div class="inner-columns clearfix">
-            
-            <div class="inner-columns-left">
-			<h2>Мы используем только<br/>лучшие средства:</h2>
-			<h4>2020-11-05</h4>
-            <p class="short-text">Наша парикмахерская занимается исключительно мужскими
-                стрижками. Стрижка каждого клиента для нас - это уникальная
-                и продуманная до мелочей работа. Мы не работаем на количество,
-                мы делаем качество.
-            </p>
-			<a href="" class="btn">Полный текст</a>
-            </div>
-			
-            <div class="inner-columns-right">
-			<h2>Мы используем только<br/>лучшие средства:</h2>
-			<h4>2020-11-05</h4>
-            <p class="short-text">Наша мастерская расположеная в центре города, поэтому
-                сделать стильную стрижку можно в любое время, даже в
-                обеденный перерыв. Здесь вы можете погрузиться в удобную
-                для вас атмосферу, чувствовать себя комфортно и свободно!
-            </p>
-			<a href="" class="btn">Полный текст</a>
-			</div>
+			{% for news in all_news %}
+				{% if not news.id|divisibleby:"2" %}
+					<div class="inner-columns-left">
+						<h2>{{ news.title }}</h2>
+						<h4>{{ news.date }}</h4>
+						<p class="short-text"> {{ news.body|truncatewords:20 }}</p>
+						<a href="" class="btn">Полный текст</a>
+					</div>
+				{% else %}
+					<div class="inner-columns-right">
+						<h2>{{ news.title }}</h2>
+						<h4>{{ news.date }}</h4>
+						<p class="short-text"> {{ news.body|truncatewords:20 }}</p>
+						<a href="" class="btn">Полный текст</a>
+					</div>	
+				{% endif %}		
+			{% endfor %}            
         </div>	
 		
     </div>    
