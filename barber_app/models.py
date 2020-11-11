@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 class News(models.Model):
@@ -6,3 +7,9 @@ class News(models.Model):
 	slug = models.SlugField(max_length=250, unique=True)
 	body = models.TextField(blank=True)
 	date = models.DateField(auto_now_add=True)
+
+	def __str__(self):
+		retutn self.title
+
+	#def get_absolute_url(self):
+		#return reverse('news_page_url', kwargs={'slug': self.slug})
