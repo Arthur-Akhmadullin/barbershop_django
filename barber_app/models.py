@@ -9,7 +9,7 @@ class News(models.Model):
 	date = models.DateField(auto_now_add=True)
 
 	def __str__(self):
-		retutn self.title
+		return self.title
 
 	#def get_absolute_url(self):
 		#return reverse('news_page_url', kwargs={'slug': self.slug})
