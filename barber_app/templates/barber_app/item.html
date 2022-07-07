@@ -13,14 +13,14 @@
 
 {% block content %}
     <h1 class="item-title">
-        Набор для путешествий "Baxter of California"        
+        {{ item.category }} "{{ item.name }}"       
     </h1>
     
     <ul class="breadcrumbs">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="#">Магазин</a></li>
-        <li><a href="#">Средства для ухода</a></li>
-        <li class="current">Набор для путешествий "Baxter of California"</li>
+        <li><a href="{% url 'main_page_url' %}">Главная</a></li>
+        <li><a href="{% url 'shop_page_url' %}">Магазин</a></li>
+        <li><a href="{% url 'shop_page_url_by_groups' item.good_group.slug %}">{{ item.good_group }}</a></li>
+        <li class="current">{{ item.category }} "{{ item.name }}"</li>
     </ul>
     
     <div class="item-content">
@@ -40,30 +40,23 @@
 
             <div class="item-columns-right">
                 <div class="description">
-                    <div class="presence clearfix">
-                        <span>Есть в наличии</span>
-                        <span class="article">Артикул: Dexter-AE</span> 
+                    <div class="presence clearfix">						
+						<span>{% if item.available %} Есть в наличии {% else %} Нет в наличии {% endif %}</span>	
+                        <span class="article">Артикул: {{ item.article }}</span> 
                     </div>
 
-                    <p class="item-short-text">Travel Kit - необходимый аксессуар во время
-                        любого путешествия. В аккуратной кожаной сумке находится все, что
-                        нужно для бритья и ухода за кожей во время рабочей поездки или отдыхаЖ
-                        средство для умывания, увлажняющий крем, крем для бритья, крем после
-                        бритья, шампунь. Набор также может стать отличным подарком.
+                    <p class="item-short-text">
+						{{ item.short_description }}
                     </p>
 
                     <div class="price-content">
-                        <span class="price">2 900 руб.</span>
+                        <span class="price">{{ item.price }} руб.</span>
                         <a class="btn" href="#">Купить</a>
                     </div>
 
                     <h2>В набор входят:</h2>
                     <ul class="custom-list-1">
-                        <li>Средство для умывания (50 мл)</li>
-                        <li>Увлажнящий крем (50 мл)</li>
-                        <li>Крем для бритья (50 мл)</li>
-                        <li>Крем после бритья, шампунь (50 мл)</li>
-                        <li>Удобная кожаная косметичка</li>
+                        {{ item.description }}
                     </ul>
                 </div>
             </div>

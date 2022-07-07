@@ -32,18 +32,14 @@
         <div class="index-content-left">
             <h2 class="index-content-title">Новости</h2>
             <ul class="news-preview">
+				{% for news in pasts_news %}
                 <li>
-                    <p>Нам наконец завезли Ягермастер! Теперь вы можете пропустить
-                        стаканчик во время стрижки.</p>
-                    <time datetime="2019-09-10">10 сентября</time>
-                </li>
-                <li>
-                    <p>В нашей команде пополнение, Борис "Бритва" Стригунец, обладатель
-                        множества титулов и наград, пополнил наши стройные ряды.</p>
-                    <time datetime="2019-09-14">14 сентября</time>
-                </li>
+                    <p>{{ news.body|truncatechars:100 }}</p>
+                    <time datetime=" {{news.date}} "> {{ news.date|date:"m F" }}</time>
+                </li>                
+				{% endfor %}
             </ul>
-            <a class="btn" href="#">Все новости</a>
+            <a class="btn" href="{% url 'all_news_url' %}">Все новости</a>
         </div>
         <div class="index-content-right">
             <h2 class="index-content-title">Фотогалерея</h2>
