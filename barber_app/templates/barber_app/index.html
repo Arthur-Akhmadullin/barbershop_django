@@ -34,7 +34,7 @@
             <ul class="news-preview">
 				{% for news in pasts_news %}
                 <li>
-                    <p>{{ news.body|truncatechars:100 }}</p>
+                    <p>{{ news.body|truncatechars:100|safe }}</p>
                     <time datetime=" {{news.date}} "> {{ news.date|date:"m F" }}</time>
                 </li>                
 				{% endfor %}
@@ -45,7 +45,13 @@
             <h2 class="index-content-title">Фотогалерея</h2>
             <div class="gallery">
                 <figure class="gallery-content">
-                    <img src="{% static 'images/photo-gallery.jpg' %}" width="286" 
+                    <img src="{% static 'images/photo-gallery1.jpg' %}" width="286" 
+                    height="164" alt="">
+					<img class="gallery-img-none" src="{% static 'images/photo-gallery2.jpg' %}" width="286" 
+                    height="164" alt="">
+					<img class="gallery-img-none" src="{% static 'images/photo-gallery3.jpg' %}" width="286" 
+                    height="164" alt="">
+					<img class="gallery-img-none" src="{% static 'images/photo-gallery4.jpg' %}" width="286" 
                     height="164" alt="">
                 </figure>            
                 <button class="btn btn-gallery-prev" disabled>Назад</button>
@@ -73,13 +79,13 @@
         <div class="index-content-right">
             <h2 class="index-content-title">Как записаться</h2>
             <p>Укажите желаемую дату и мы свяжемся с вами для подтверждения брони</p>
-            <form class="appointment-form" action="https://echo.htmlacademy.ru" 
-            method="POST">
-                <input type="text" name="date" value="" placeholder="Дата">
-                <input type="text" name="time" value="" placeholder="Время">
-                <input type="text" name="name" value="" placeholder="Ваше имя">
-                <input type="tel" name="phone" value="" placeholder="Телефон">
+            <form class="appointment-form" action="{% url 'record' %}" method="POST">
+                {{ recordform.name }}
+				{{ recordform.phone }}
+				{{ recordform.date }}
+				{{ recordform.time }}
                 <button class="btn" type="submit">Отправить</button>
+				{% csrf_token %}
             </form>            
         </div>
     </div>

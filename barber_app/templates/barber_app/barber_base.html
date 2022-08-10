@@ -15,14 +15,17 @@
  </head>
 
 <body 
-	{% block bodyclass%}
+	{% block bodyclass %}
 	{% endblock %}
 >
 
 	{% include 'include/header.html' %}
 
+	
+
 	<main class="container">
-		{% block content %}
+		{% include 'include/messages.html' %}
+		{% block content %}			
 		{% endblock %}
 	</main>
 

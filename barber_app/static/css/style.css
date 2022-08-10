@@ -52,7 +52,7 @@ img {
 
 .main-navigation {
     float: left;
-    width: 780px;
+    width: 600px;
 
     min-height: 70px;
 }
@@ -339,6 +339,10 @@ img {
 .gallery-content img {
     width: 286px;
     height: 164px;
+}
+
+.gallery-img-none{
+	display: none;
 }
 
 .gallery .btn {
@@ -1279,3 +1283,86 @@ img {
     animation: shake 0.6s;
 }
 
+.addcart {
+	display: block;	
+	margin-left: 5px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px; 
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 45px;    
+}
+
+.login2 {
+    position: relative;
+
+    display: inline-block;
+    padding: 25px 20px;
+    padding-left: 50px;
+
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: top;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.appointment-form select{
+    float: left;
+	box-sizing: content-box;
+    width: 106px;
+    padding:10px 15px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+	
+	
+    font-size: 14px;
+    line-height: 24px;
+    font-family: "PT Sans Narrow", "Arial", sans-serif;
+    color: #000000;
+    text-transform: uppercase;
+
+    background-color: #f9f6f3;
+    border: 2px solid #000000;
+    outline: none;
+}
+
+.appointment-form select:focus {
+    border: 2px solid #663d15;
+}
+
+.cart-block {
+    float: left;
+    width: 180px;    
+
+    min-height: 70px;
+}
+
+.messages {
+	display: block;
+	width: 500px;
+	margin-bottom: 50px;
+	padding: 0px;
+	border: 1px solid #000000;
+	border-radius: 4px;
+	
+	list-style: none;
+	font-size: 16px;
+}
+
+.messages li {
+	padding: 15px 0px;
+	text-align: center;
+}
+
+.messages .success {
+	color: #ffffff;
+	background-color: #3cb371;
+}
+
+.messages .error {
+	color: #ffffff;
+	background-color: #b22222;
+}

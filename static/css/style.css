@@ -170,6 +170,7 @@ img {
     opacity: 1;
 }
 
+
 .index-logo {
     width: 368px;
     height: 204px;
@@ -1279,3 +1280,52 @@ img {
     animation: shake 0.6s;
 }
 
+.addcart {
+	display: block;	
+	margin-left: 5px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px; 
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 45px;    
+}
+
+.login2 {
+    position: relative;
+
+    display: inline-block;
+    padding: 25px 20px;
+    padding-left: 50px;
+
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: top;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.appointment-form select{
+    float: left;
+	box-sizing: content-box;
+    width: 106px;
+    padding:10px 15px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+	
+	
+    font-size: 14px;
+    line-height: 24px;
+    font-family: "PT Sans Narrow", "Arial", sans-serif;
+    color: #000000;
+    text-transform: uppercase;
+
+    background-color: #f9f6f3;
+    border: 2px solid #000000;
+    outline: none;
+}
+
+.appointment-form select:focus {
+    border: 2px solid #663d15;
+}

@@ -1,21 +1,25 @@
 {% load static %}
 
+
 <div class="modal-content">
     <button class="modal-content-close" type="button" 
     title="Закрыть">Закрыть</button>
     <h2 class="modal-content-title">Личный кабинет</h2>
-    <p>Введите свой логин и пароль</p>
-    <form class="login-form" action="https://echo.htmlacademy.ru" method="POST">
-        <input class="icon-user" type="text" name="login" placeholder="Логин" image=>
-        <input class="icon-password" type="text" name="password" placeholder="Пароль">
-        
+    <p>Введите свой логин и пароль</p>	
+    <form class="login-form" action="{% url 'login' %}" method="POST">
+		{% csrf_token %}
+        {{ form.username }}
+		{{ form.password }}
+		<input type="hidden" name="next" value="{{ next }}" />
         <label class="login-checkbox">
             <input type="checkbox" name="remember">
             <span class="checkbox-indicator"></span>
             Запомните меня
         </label>
-
-        <a href="#" class="restore">Я забыл пароль!</a>
+		
+        <a href="{% url 'password_reset' %}" class="restore">Я забыл пароль!</a>
+		</br>
+		<a href="{% url 'register' %}" class="restore">Регистрация</a>		
         <button class="btn" type="submit">Войти</button>
     </form>
 </div>
@@ -35,3 +39,4 @@
 <div class="modal-overlay"></div>
 
 <script src="{% static 'js/popup.js' %}"></script>
+<script src="{% static 'js/gallery.js' %}"></script>

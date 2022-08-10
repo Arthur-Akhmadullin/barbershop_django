@@ -28,7 +28,7 @@
 		<div class="inner-columns clearfix">
 			<h2>{{ past_news.title }}</h2>
 			<h4>{{ past_news.date }}</h4>
-			<p class="short-text">{{ past_news.body|truncatewords:30 }}</p>	
+			<p class="short-text">{{ past_news.body|truncatewords:30|safe }}</p>	
 			<a href="{{ past_news.get_absolute_url }}" class="btn">Полный текст</a>			
 		</div>
 		

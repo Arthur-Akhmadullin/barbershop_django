@@ -1,0 +1,7 @@
+python manage.py migrate --fake barber_app zero
+python manage.py showmigrations
+удалить файлы миграции из папки migrations (кроме файла initial.py)
+python manage.py makemigrations
+python manage.py migrate --fake-initial (без -initial)
+
+CREATE TABLE "barber_app_goodsgroups ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_goods" varchar(30) NOT NULL)

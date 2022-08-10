@@ -25,17 +25,16 @@
     
     <div class="item-content">
         <div class="item-columns clearfix">
-            <div class="item-columns-left">
-                <div class="item-gallery">                    
-                    <img class="main-photo" src="{% static 'images/item-big.png' %}" 
-                        width="460" height="500">                    
-                    <img class="additional-photo" src="{% static 'images/item-little-1.png' %}" 
-                        width="140" height="150">
-                    <img class="additional-photo" src="{% static 'images/item-little-2.png' %}" 
-                        width="140" height="150">
-                    <img class="additional-photo" src="{% static 'images/item-little-3.png' %}" 
-                        width="140" height="150">
-                </div>   
+            <div class="item-columns-left">	
+			
+				<div class="item-gallery">                    
+                    <img class="main-photo" src="{{ item.images.all.first.image.url }}" 
+                        width="460" height="500">  
+					{% for image in item.images.all %}
+						<img class="additional-photo" src="{{ image.image.url }}" width="140" height="150">
+					{% endfor %}
+                </div>
+				
             </div>
 
             <div class="item-columns-right">
@@ -47,16 +46,21 @@
 
                     <p class="item-short-text">
 						{{ item.short_description }}
-                    </p>
-
-                    <div class="price-content">
-                        <span class="price">{{ item.price }} руб.</span>
-                        <a class="btn" href="#">Купить</a>
-                    </div>
+                    </p>                    
+					
+					<!-- Эту форму надо вставить в div price-content, который выше -->
+					<div class="price-content">
+						<form action="{% url 'cart_add' item.id %}" method="post">
+						<span class="price">{{ item.price }} руб.</span>
+							{{ cart_good_form }}
+							{% csrf_token %}
+							<input class="btn" type="submit" value="В корзину">
+						</form>
+					</div>
 
                     <h2>В набор входят:</h2>
                     <ul class="custom-list-1">
-                        {{ item.description }}
+                        {{ item.description|safe }}
                     </ul>
                 </div>
             </div>

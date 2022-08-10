@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+	'barber_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-	'barber_app',
+    'django.contrib.staticfiles',	
 	'ckeditor',
 	'ckeditor_uploader',
 ]
@@ -67,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+				'barber_app.context_processors.cart',
+				'barber_app.context_processors.loginform',
             ],
         },
     },
@@ -134,3 +136,24 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #visual editor CKEDITOR settings
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+
+CART_SESSION_ID = 'cart'
+
+#включаем надстройку EmailBackend для отправки почты без использования SMTP-сервера
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'barbershop.django@mail.ru'
+EMAIL_HOST_PASSWORD = 'barberdja1707'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+
+#Настройки авторизации
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+#Указываем бэкенды. Первый для авторизации по логину (встроенный в Джанго). Второй, наш - по e-mail
+AUTHENTICATION_BACKENDS = [
+'django.contrib.auth.backends.ModelBackend',
+'barber_app.authentication.EmailAuthBackend',
+]

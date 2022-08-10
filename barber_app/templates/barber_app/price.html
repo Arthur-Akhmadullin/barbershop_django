@@ -37,18 +37,12 @@
             <div class="inner-columns-right">
             <h2>Цены на услуги<br>наших мастеров</h2>
             <table class="prices-table">
-                <tr>
-                    <td>Стрижка</td>
-                    <td>1500 р.</td>
+				{% for service in services %}
+				<tr>
+                    <td>{{ service.service_name }}</td>
+                    <td>{{ service.price }} р.</td>
                 </tr>
-                <tr>
-                    <td>Стрижка бороды</td>
-                    <td>500 р.</td>
-                </tr>
-                <tr>
-                    <td>Накрутка усов</td>
-                    <td>350 р.</td>
-                </tr>
+				{% endfor %}                
             </table>
             </div>
         </div>
